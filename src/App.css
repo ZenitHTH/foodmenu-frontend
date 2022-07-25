@@ -1,0 +1,20 @@
+.bg-green {
+  background-color: #00a556;
+  color: #00a556;
+}
+
+.text-green {
+  color: #00a556;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-link {
+  text-decoration: None;
+}
+
+div.dropdown-menu.show {
+  background-color: #096338;
+}

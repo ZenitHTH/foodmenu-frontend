@@ -1,0 +1,11 @@
+.mobile-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-center {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
