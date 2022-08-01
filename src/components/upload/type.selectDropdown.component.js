@@ -5,10 +5,7 @@ function Type({ type, setOutput }) {
   return (
     <Form.Select
       onChange={(e) => {
-        const found = type.find((obj) => {
-          return obj._id === e.target.value;
-        });
-        setOutput(found);
+        setOutput(e.target.value);
       }}
     >
       <option>SelectType</option>
