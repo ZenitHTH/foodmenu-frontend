@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, CardGroup } from "react-bootstrap";
 import { Buffer } from "buffer";
 import FoodCard from "./foodCard/foodCard.component";
-import Image from "./foodCard/food.jpg";
 import "./home.css";
 
 function Home({hostname}) {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  const elements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
