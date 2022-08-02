@@ -5,14 +5,14 @@ import FoodCard from "./foodCard/foodCard.component";
 import Image from "./foodCard/food.jpg";
 import "./home.css";
 
-function Home({ foodlist }) {
+function Home({hostname}) {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const elements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
-      const responese = await fetch("http://localhost:4000/");
+      const responese = await fetch(`http://${hostname}:4000`);
       const data = await responese.json();
       setData(data);
       console.log("fetchData Success!");
@@ -57,11 +57,8 @@ function Home({ foodlist }) {
                 cardVariant="top"
                 image={`data:image;base64,${base64Img}`}
                 title={dat.name}
-                description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet."
+                type={dat.type}
+                subtype={dat.subtype}
               />
             </Col>
           );
