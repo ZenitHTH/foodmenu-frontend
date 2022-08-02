@@ -4,7 +4,7 @@ import Multiselect from "multiselect-react-dropdown";
 import Type from "./type.selectDropdown.component";
 import axios from "axios";
 
-function Upload() {
+function Upload({hostname}) {
   const [type, setType] = useState([]);
   const [subtype, setSubtype] = useState([]);
   const [selectIdType, setSelectIdType] = useState();
@@ -15,7 +15,7 @@ function Upload() {
   const [width] = useState(window.innerWidth);
   const fetchData = async () => {
     const fetching = async (type) => {
-      const responese = await fetch(`http://localhost:4000/${type}`);
+      const responese = await fetch(`http://${hostname}:4000/${type}`);
       const data = await responese.json();
       return data;
     };
