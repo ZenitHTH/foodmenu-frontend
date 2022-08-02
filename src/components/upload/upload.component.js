@@ -4,7 +4,7 @@ import Multiselect from "multiselect-react-dropdown";
 import Type from "./type.selectDropdown.component";
 import axios from "axios";
 
-function Upload({hostname}) {
+function Upload({ hostname }) {
   const [type, setType] = useState([]);
   const [subtype, setSubtype] = useState([]);
   const [selectIdType, setSelectIdType] = useState();
@@ -37,7 +37,7 @@ function Upload({hostname}) {
     data.append("idtype", selectIdType);
     data.append("idsubtype", selectIdSubType);
     data.append("pricefood", pricefood);
-    axios.post("http://127.0.0.1:4000/food", data).then((res) => {
+    axios.post(`http://${hostname}:4000/food`, data).then((res) => {
       console.log(res);
     });
   };
@@ -89,11 +89,11 @@ function Upload({hostname}) {
           ></Form.Control>
         </Form.Group>
         <Form.Group as={Col} className="mb-2">
-          <Form.Label>Type</Form.Label>
+          <Form.Label>ประเภท</Form.Label>
           <Type type={type} setOutput={setSelectIdType} />
         </Form.Group>
         <Form.Group as={Col} className="mb-2">
-          <Form.Label>Subtype</Form.Label>
+          <Form.Label>ชนิด</Form.Label>
           <Multiselect
             options={subtype}
             displayValue="name"
@@ -111,9 +111,13 @@ function Upload({hostname}) {
               setSelectIdSubType(result);
             }}
           />
-          <Button className="m-3" type="submit" onClick={post}>
-            Sumbit
-          </Button>
+        </Form.Group>
+        <Form.Group as={Row} className="justify-content-center">
+          <Col>
+            <Button className="m-1" type="submit" onClick={post}>
+              Submit
+            </Button>
+          </Col>
         </Form.Group>
       </Form>
     </Container>
