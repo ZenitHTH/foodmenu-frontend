@@ -15,12 +15,12 @@ function App() {
       <MainNavBar />
 
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Home hostname="192.168.1.112"/>} />
         <Route path="/type" element={<TypeList />} />
         <Route path="/type/create" element={<TypeCreate />} />
         <Route path="/subtype" />
         <Route path="/admin" element={<Login />} />
-        <Route path="/upload" element={<Upload />} />
+        <Route path="/upload" element={<Upload hostname="192.168.1.112"/>} />
         <Route />
       </Routes>
     </div>
