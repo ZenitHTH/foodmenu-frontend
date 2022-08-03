@@ -1,7 +1,10 @@
 import { React, useState, useEffect } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import Multiselect from "multiselect-react-dropdown";
-import Type from "./type.selectDropdown.component";
+import TypeComponent from "./typeComponent/type.formgroup.component";
+import NameFood from "./namefood.control.component";
+import PriceFood from "./pricefood.control.component";
+import PhotoSelect from "./photosSelect.control.component";
+import SubTypeComponent from "./subtypeComponent/subtype.formgroup.component";
 import axios from "axios";
 
 function Upload({ hostname }) {
@@ -58,60 +61,14 @@ function Upload({ hostname }) {
             กรอกเพิ่มอาหาร
           </Form.Label>
         </Form.Group>
-        <Form.Group as={Col} className="mb-2">
-          <Form.Label> ชื่ออาหาร</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="ชื่ออาหาร"
-            onChange={(e) => {
-              setNamefood(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group as={Col} className="mb-2">
-          <Form.Label>ราคา</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="ราคาอาหาร"
-            onChange={(e) => {
-              setPricefood(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group as={Col} className="mb-2">
-          <Form.Label>เลือกรูปอาหาร</Form.Label>
-          <Form.Control
-            type="file"
-            accept="image/*"
-            onChange={(e) => {
-              setImage(e.target.files[0]);
-            }}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group as={Col} className="mb-2">
-          <Form.Label>ประเภท</Form.Label>
-          <Type type={type} setOutput={setSelectIdType} />
-        </Form.Group>
-        <Form.Group as={Col} className="mb-2">
-          <Form.Label>ชนิด</Form.Label>
-          <Multiselect
-            options={subtype}
-            displayValue="name"
-            closeIcon="close"
-            onSelect={(selectedList, selectedItem) => {
-              const result = selectedList.map((data, index) => {
-                return [...[data._id]];
-              });
-              setSelectIdSubType(result);
-            }}
-            onRemove={(selectedList, removedItem) => {
-              const result = selectedList.map((data, index) => {
-                return [...[data._id]];
-              });
-              setSelectIdSubType(result);
-            }}
-          />
-        </Form.Group>
+        <NameFood setNamefood={setNamefood} />
+        <PriceFood setPricefood={setPricefood} />
+        <PhotoSelect setImage={setImage} />
+        <TypeComponent setSelectIdType={setSelectIdType} type={type} />
+        <SubTypeComponent
+          setSelectIdSubType={setSelectIdSubType}
+          subtype={subtype}
+        />
         <Form.Group as={Row} className="justify-content-center">
           <Col>
             <Button className="m-1" type="submit" onClick={post}>
