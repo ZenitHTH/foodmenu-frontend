@@ -31,7 +31,7 @@ function Upload({ hostname }) {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [type,subtype]);
 
   const post = () => {
     const data = new FormData();
@@ -64,10 +64,15 @@ function Upload({ hostname }) {
         <NameFood setNamefood={setNamefood} />
         <PriceFood setPricefood={setPricefood} />
         <PhotoSelect setImage={setImage} />
-        <TypeComponent setSelectIdType={setSelectIdType} type={type} />
+        <TypeComponent
+          setSelectIdType={setSelectIdType}
+          type={type}
+          hostname={hostname}
+        />
         <SubTypeComponent
           setSelectIdSubType={setSelectIdSubType}
           subtype={subtype}
+          hostname={hostname}
         />
         <Form.Group as={Row} className="justify-content-center">
           <Col>
