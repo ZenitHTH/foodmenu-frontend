@@ -17,7 +17,7 @@ function TypeComponent({ setSelectIdType, type, hostname }) {
   return (
     <Form.Group as={Row} className="mb-2">
       <Form.Label>ประเภท</Form.Label>
-      <Col md={1} xs={1} lg={1}>
+      <Col md={0} xs={1} lg={1}>
         {!isTypeAdd ? (
           <FaPlusCircle
             style={{ height: "100%", fontSize: "1.25rem" }}
@@ -36,7 +36,7 @@ function TypeComponent({ setSelectIdType, type, hostname }) {
         )}
       </Col>
       <Col
-        md={isTypeAdd ? 3 : 11}
+        md={isTypeAdd ? 4 : 11}
         xs={isTypeAdd ? 5 : 11}
         lg={isTypeAdd ? 4 : 11}
       >
@@ -44,7 +44,7 @@ function TypeComponent({ setSelectIdType, type, hostname }) {
       </Col>
 
       {isTypeAdd ? (
-        <Col md={2} xs={6} lg={5}>
+        <Col md={5} xs={6} lg={5}>
           <Form.Control
             type="text"
             placeholder="ชื่อประเภท"
@@ -60,11 +60,11 @@ function TypeComponent({ setSelectIdType, type, hostname }) {
       {isTypeAdd ? (
         <Col md={2} xs={"auto"} lg={2}>
           <Button
-            className={width <= 576 ? "mt-2" : ""}
-            style={{ fontSize: "0.75rem" }}
+            className={width <= 766 ? "mt-2" : ""}
+            style={{ fontSize: "1rem" }}
             onClick={addType}
           >
-            เพิ่มประเภท
+            เพิ่ม
           </Button>
         </Col>
       ) : (

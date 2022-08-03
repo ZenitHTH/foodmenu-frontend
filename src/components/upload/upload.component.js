@@ -50,7 +50,7 @@ function Upload({ hostname }) {
       <Form
         style={{
           width:
-            width > 767 ? "60%" : width > 576 && width <= 767 ? "80%" : "100%",
+            width > 992 ? "60%" : width > 767 && width <= 992 ? "80%" : width > 576 && width <=767 ? "90%" : "100%" , 
           display: "block",
           marginLeft: "auto",
           marginRight: "auto"
