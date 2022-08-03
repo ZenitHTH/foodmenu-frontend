@@ -2,10 +2,18 @@ import { Form, Col, Row, Button } from "react-bootstrap";
 import { React, useState } from "react";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import Type from "./type.selectDropdown.component";
+import axios from "axios";
 
-function TypeComponent({ setSelectIdType, type }) {
+function TypeComponent({ setSelectIdType, type, hostname }) {
   const [isTypeAdd, setIsTypeAdd] = useState(false);
+  const [typeAdd, setTypeAdd] = useState("");
   const [width] = useState(window.innerWidth);
+
+  const addType = () => {
+    axios.post(`http://${hostname}:4000/type`, {name:typeAdd}).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <Form.Group as={Row} className="mb-2">
       <Form.Label>ประเภท</Form.Label>
@@ -40,7 +48,9 @@ function TypeComponent({ setSelectIdType, type }) {
           <Form.Control
             type="text"
             placeholder="ชื่อประเภท"
-            onChange={(e) => {}}
+            onChange={(e) => {
+              setTypeAdd(e.target.value);
+            }}
           />
         </Col>
       ) : (
@@ -49,7 +59,11 @@ function TypeComponent({ setSelectIdType, type }) {
 
       {isTypeAdd ? (
         <Col md={2} xs={"auto"} lg={2}>
-          <Button className={width <= 576 ? "mt-2" : "" } style={{ fontSize: "0.75rem", height: "100%" }}>
+          <Button
+            className={width <= 576 ? "mt-2" : ""}
+            style={{ fontSize: "0.75rem" }}
+            onClick={addType}
+          >
             เพิ่มประเภท
           </Button>
         </Col>
