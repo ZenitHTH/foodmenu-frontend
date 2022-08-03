@@ -8,7 +8,7 @@ function Type({ type, setOutput }) {
         setOutput(e.target.value);
       }}
     >
-      <option>SelectType</option>
+      <option>เลือก</option>
       {type.map((data, index) => {
         return (
           <option value={data._id} key={index}>
