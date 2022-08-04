@@ -31,14 +31,16 @@ function Upload({ hostname }) {
   };
   useEffect(() => {
     fetchData();
-  }, [type,subtype]);
+  }, [type, subtype]);
 
   const post = () => {
     const data = new FormData();
     data.append("photos", image);
     data.append("namefood", namefood);
     data.append("idtype", selectIdType);
-    data.append("idsubtype", selectIdSubType);
+    selectIdSubType.map((key, index) => {
+      data.append(`idsubtype[${index}]`, key);
+    });
     data.append("pricefood", pricefood);
     axios.post(`http://${hostname}:4000/food`, data).then((res) => {
       console.log(res);
@@ -50,7 +52,13 @@ function Upload({ hostname }) {
       <Form
         style={{
           width:
-            width > 992 ? "60%" : width > 767 && width <= 992 ? "80%" : width > 576 && width <=767 ? "90%" : "100%" , 
+            width > 992
+              ? "60%"
+              : width > 767 && width <= 992
+              ? "80%"
+              : width > 576 && width <= 767
+              ? "90%"
+              : "100%",
           display: "block",
           marginLeft: "auto",
           marginRight: "auto"
