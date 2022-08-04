@@ -5,7 +5,7 @@ import { Card, Container } from "react-bootstrap";
 function FoodCard({ cardStyleWidth, cardMargin, cardVariant, image, title, type, subtype }) {
   return (
     <Card style={{ width: cardStyleWidth , marginLeft:cardMargin , marginRight:cardMargin}} className="justify-content-center">
-      <Card.Img src={image} variant={cardVariant} />
+      <Card.Img src={image} variant={cardVariant} style={{height:"240px"}} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Subtitle>ประเภท: {type}</Card.Subtitle>
