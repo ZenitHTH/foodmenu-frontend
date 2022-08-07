@@ -22,7 +22,7 @@ function Home({hostname}) {
     fetchData();
   }, []);
   return (
-    <CardGroup className="mt-3 md-6">
+    <CardGroup className="m-3 md-6">
       <Row
         className="justify-content-center g-4"
         /*{
@@ -49,7 +49,7 @@ function Home({hostname}) {
                   width > 767
                     ? ""
                     : width > 576 && width <= 767
-                    ? `${width * 0.1}px`
+                    ? `${width * 0.085}px`
                     : "5%"
                 }
                 cardVariant="top"
